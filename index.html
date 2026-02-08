@@ -22,10 +22,11 @@
             <div class="nav-actions">
                 <ul class="nav-links">
                     <li><a href="#home">Profile</a></li>
-                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#about">About</a></li>
                     <li><a href="#education">Education</a></li>
-                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#experience">Experience</a></li>
                     <li><a href="#projects">Projects</a></li>
+                    <li><a href="#skills">Skills</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
                 <button id="theme-toggle" class="theme-toggle" aria-label="Toggle color theme">☀ Light</button>
@@ -80,6 +81,28 @@
                         document.getElementById('about-text').innerText = 'Unable to load text.';
                     });
             </script>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="education">
+        <div class="container">
+            <h2>Education</h2>
+            <div class="education-items">
+                <div class="education-item">
+                    <h3>BEng in Computer Engineering with an Extended Major in Digital Media and Creative Arts and BBA (Undeclared Major)</h3>
+                    <p class="institution">The Hong Kong University of Science and Technology</p>
+                    <p class="graduation">Expected Year of Graduation: 2029</p>
+                </div>
+                <div class="education-item">
+                    <h3>Artificial Intelligence and Machine Learning - Theory and Practice | Computational Psychology</h3>
+                    <p class="institution">University of Oxford - Lady Margaret Hall Summer Programmes</p>
+                    <p class="graduation">Completed in 2025 with grade A | A-</p>
+                </div>
+            </div>
+            <div class="course-history-link">
+                <a href="course-history.html" class="btn-secondary">View Full Course History</a>
+            </div>
         </div>
     </section>
 
@@ -139,24 +162,29 @@
         </div>
     </section>
 
-    <!-- Education Section -->
-    <section id="education" class="education">
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
         <div class="container">
-            <h2>Education</h2>
-            <div class="education-items">
-                <div class="education-item">
-                    <h3>BEng in Computer Engineering with an Extended Major in Digital Media and Creative Arts and BBA (Undeclared Major)</h3>
-                    <p class="institution">The Hong Kong University of Science and Technology</p>
-                    <p class="graduation">Expected Year of Graduation: 2029</p>
+            <h2>Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>The Pokédex Project</h3>
+                    <p>Utilizing computer vision and machine learning to identify and classify Pokémon species, thus recreating the experience of a Pokédex.</p>
+                    <a href="https://github.com/isaaclau128/The-Pokedex-Project" target="_blank" class="btn btn-secondary">Learn More</a>
                 </div>
-                <div class="education-item">
-                    <h3>Artificial Intelligence and Machine Learning - Theory and Practice | Computational Psychology</h3>
-                    <p class="institution">University of Oxford - Lady Margaret Hall Summer Programmes</p>
-                    <p class="graduation">Completed in 2025 with grade A | A-</p>
+                <div class="project-card">
+                    <h3>HKUST Waitlist Reminder</h3>
+                    <p>Program that sends notifications to students on the waitlist for courses at HKUST.</p>
+                    <a href="https://github.com/isaaclau128/HKUST-Waitlist-Reminder" target="_blank" class="btn btn-secondary">Learn More</a>
                 </div>
-            </div>
-            <div class="course-history-link">
-                <a href="course-history.html" class="btn-secondary">View Full Course History</a>
+
+                <!--
+                <div class="project-card">
+                    <h3>Project 3</h3>
+                    <p>A brief description of your third project goes here.</p>
+                    <a href="#" class="btn btn-secondary">Learn More</a>
+                </div>
+                -->
             </div>
         </div>
     </section>
@@ -198,33 +226,6 @@
                         <span class="tag">GarageBand</span>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <h2>Featured Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <h3>The Pokédex Project</h3>
-                    <p>Utilizing computer vision and machine learning to identify and classify Pokémon species, thus recreating the experience of a Pokédex.</p>
-                    <a href="https://github.com/isaaclau128/The-Pokedex-Project" target="_blank" class="btn btn-secondary">Learn More</a>
-                </div>
-                <div class="project-card">
-                    <h3>HKUST Waitlist Reminder</h3>
-                    <p>Program that sends notifications to students on the waitlist for courses at HKUST.</p>
-                    <a href="https://github.com/isaaclau128/HKUST-Waitlist-Reminder" target="_blank" class="btn btn-secondary">Learn More</a>
-                </div>
-
-                <!--
-                <div class="project-card">
-                    <h3>Project 3</h3>
-                    <p>A brief description of your third project goes here.</p>
-                    <a href="#" class="btn btn-secondary">Learn More</a>
-                </div>
-                -->
             </div>
         </div>
     </section>
