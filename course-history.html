@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Course History | Isaac Lau Tsz Hin</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <script>
@@ -54,44 +53,45 @@
             <h2>Course History</h2>
             <p class="description">Number of credits for each course is indicated in parentheses.</p>
 
-
-        </div>
-
             <div class="semester">
-                <h3>Spring 2025-2026</h3>
-                    <div class="course">
-                <span class="course-name">COMP2012 - Object Oriented Programming (4)</span>
-                </div>
+                <h3>Spring 2025-2026 (Current Semester)</h3>
                 <div class="course">
-                    <span class="course-name">ELEC2400 - Electronic Circuits (4)</span>
-                </div>
+            <span class="course-name">COMP2012 - Object Oriented Programming (4)</span>
+            </div>
+            <div class="course">
+                <span class="course-name">ELEC2400 - Electronic Circuits (4)</span>
+            </div>
+            <div class="course">
+                <span class="course-name">FINA2303 - Financial Management (3)</span>
+            </div>
+            <div class="course">
+                <span class="course-name">HUMA1102 - Introduction to Classical Music (3)</span>
+            </div>
+            <div class="course">
+                <span class="course-name">ISOM2600 - Introduction to Business Analytics (1)</span>
+            </div>
+            <div class="course">
+                <span class="course-name">LANG2063 - Writing for Workplace Success (3)</span>
+            </div>
+            <div class="course">
+                <span class="course-name">MGMT2110 - Organizational Behavior (3)</span>
+            </div>
+            <div class="course">
+                <span class="course-name">CPEG1971 - Industrial Training (0)</span>
+            </div>
+            <div class="course">
+                <span class="course-name">CPEG2930 - Academic and Professional Development II (0)</span>
+            </div>
+            <div class="course">
+                <span class="course-name">ENGG2010 - Engineering Seminar Series (0)</span>
+            </div>
+            <div class="course">
+                <span class="course-name">TEMG1010 - T&M Professional Activities (0)</span>
+            </div>
                 <div class="course">
-                    <span class="course-name">FINA2303 - Financial Management (3)</span>
-                </div>
-                <div class="course">
-                    <span class="course-name">HUMA1102 - Introduction to Classical Music (3)</span>
-                </div>
-                <div class="course">
-                    <span class="course-name">ISOM2600 - Introduction to Business Analytics (1)</span>
-                </div>
-                <div class="course">
-                    <span class="course-name">LANG2063 - Writing for Workplace Success (3)</span>
-                </div>
-                <div class="course">
-                    <span class="course-name">MGMT2110 - Organizational Behavior (3)</span>
-                </div>
-                <div class="course">
-                    <span class="course-name">CPEG2930 - Academic and Professional Development II (0)</span>
-                </div>
-                <div class="course">
-                    <span class="course-name">ENGG2010 - Engineering Seminar Series (0)</span>
-                </div>
-                <div class="course">
-                    <span class="course-name">TEMG1010 - T&M Professional Activities (0)</span>
+                    <span class="course-name">TEMG4970F - T&M IBPC in Saudi Arabia (3)</span>
                 </div>
             </div>
-
-    
 
             <div class="semester">
                 <h3>Winter 2025-2026</h3>
@@ -227,16 +227,15 @@
     </section>
 
     <!-- Footer -->
-    <div id="footer-container"></div>
-    <script>
-        // Load footer from separate file
-        fetch('footer.html')
-            .then(response => response.text())
-            .then(html => {
-                document.getElementById('footer-container').innerHTML = html;
-            })
-            .catch(() => console.error('Failed to load footer'));
-    </script>
+    <footer>
+        <div class="container">
+            <p>
+                <a href="mailto:isaactszhinlau@gmail.com" target="_blank"><i class="fas fa-envelope"></i> isaactszhinlau@gmail.com</a> | 
+                <a href="https://github.com/isaaclau128" target="_blank"><i class="fab fa-github"></i> https://github.com/isaaclau128</a> | 
+                <a href="https://www.linkedin.com/in/lautszhinisaac" target="_blank"><i class="fab fa-linkedin"></i> https://www.linkedin.com/in/lautszhinisaac</a>
+            </p>
+        </div>
+    </footer>
     <script>
         (function() {
             const toggleBtn = document.getElementById('theme-toggle');
