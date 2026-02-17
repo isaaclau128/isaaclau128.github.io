@@ -337,7 +337,7 @@ body.theme-light .theme-toggle:hover {
 .timeline::before {
     content: '';
     position: absolute;
-    left: 20px;
+    left: 17px;
     top: 0;
     bottom: 0;
     width: 3px;
@@ -362,7 +362,7 @@ body.theme-light .theme-toggle:hover {
 .timeline-item::before {
     content: '';
     position: absolute;
-    left: -48px;
+    left: -36px;
     top: 0;
     width: 16px;
     height: 16px;
@@ -728,7 +728,7 @@ footer a:hover {
     }
 
     .timeline::before {
-        left: 15px;
+        left: 13px;
     }
 
     .timeline-item {
@@ -737,7 +737,7 @@ footer a:hover {
     }
 
     .timeline-item::before {
-        left: -42px;
+        left: -34px;
         width: 14px;
         height: 14px;
     }
@@ -833,7 +833,7 @@ footer a:hover {
     }
 
     .timeline::before {
-        left: 10px;
+        left: 9px;
         width: 2px;
     }
 
@@ -843,7 +843,7 @@ footer a:hover {
     }
 
     .timeline-item::before {
-        left: -32px;
+        left: -27px;
         width: 12px;
         height: 12px;
         border-width: 2px;
