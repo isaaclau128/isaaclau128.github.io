@@ -297,7 +297,6 @@ body.theme-light .theme-toggle:hover {
 /* About Section */
 .about {
     padding: 60px 0;
-    background-color: var(--light-bg);
 }
 
 .about h2 {
@@ -357,6 +356,10 @@ body.theme-light .theme-toggle:hover {
 .timeline-item:hover {
     transform: translateX(5px);
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.timeline-item:hover::before {
+    transform: translateX(-5px);
 }
 
 .timeline-item::before {
