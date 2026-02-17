@@ -343,6 +343,22 @@ body.theme-light .theme-toggle:hover {
     transition: var(--transition);
 }
 
+.timeline-item:nth-child(1) {
+    background-color: #0b5da0;
+}
+
+.timeline-item:nth-child(2) {
+    background-color: #0b83c7;
+}
+
+.timeline-item:nth-child(3) {
+    background-color: #2a9df4;
+}
+
+.timeline-item:nth-child(4) {
+    background-color: #5bb5ff;
+}
+
 .timeline-item:hover {
     transform: translateY(-6px);
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
