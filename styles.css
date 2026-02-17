@@ -349,12 +349,12 @@ body.theme-light .theme-toggle:hover {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    bottom: -20px;
+    top: -20px;
     width: 0;
     height: 0;
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
-    border-top: 15px solid var(--primary-color);
+    border-bottom: 15px solid var(--primary-color);
 }
 
 .timeline-item {
@@ -371,7 +371,7 @@ body.theme-light .theme-toggle:hover {
 .timeline-item:nth-child(odd) {
     margin-left: 0;
     margin-right: auto;
-    text-align: right;
+    text-align: left;
 }
 
 .timeline-item:nth-child(even) {
@@ -389,13 +389,7 @@ body.theme-light .theme-toggle:hover {
     transform: translateX(-5px);
 }
 
-.timeline-item:hover::before {
-    transform: translateX(0);
-}
 
-.timeline-item:nth-child(odd):hover::before {
-    transform: translateX(0);
-}
 
 .timeline-item::before {
     content: '';
@@ -406,7 +400,6 @@ body.theme-light .theme-toggle:hover {
     border-radius: 50%;
     background: var(--primary-color);
     border: 3px solid var(--surface-color);
-    box-shadow: 0 0 0 3px var(--primary-color);
 }
 
 .timeline-item:nth-child(odd)::before {
