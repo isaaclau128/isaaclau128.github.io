@@ -516,7 +516,7 @@ body.theme-light .theme-toggle:hover {
 }
 
 .skill-category {
-    background-color: var(--light-bg);
+    background-color: var(--card-color);
     padding: 2rem;
     border-radius: 8px;
 }
