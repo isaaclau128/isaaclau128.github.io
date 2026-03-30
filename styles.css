@@ -567,6 +567,9 @@ body.theme-light .theme-toggle:hover {
     padding: 2rem;
     box-shadow: var(--shadow);
     transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .project-card:hover {
@@ -583,6 +586,12 @@ body.theme-light .theme-toggle:hover {
 .project-card p {
     color: var(--muted-text);
     margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.project-card .btn {
+    margin-top: auto;
+    align-self: flex-start;
 }
 
 .course-history {
