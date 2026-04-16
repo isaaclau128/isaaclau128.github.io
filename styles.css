@@ -42,6 +42,10 @@ body.theme-light .timeline-item:nth-child(4) {
     background-color: #e8f5ff;
 }
 
+body.theme-light .skill-category {
+    background-color: #e5e7eb;
+}
+
 /* Reset & Base Styles */
 * {
     margin: 0;
@@ -195,26 +199,71 @@ body.theme-light .theme-toggle:hover {
 .hero-photo {
     flex: 0 0 auto;
     text-align: center;
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
-
-.hero-photo img {
+.hero-photo-scroll {
     width: 320px;
-    max-width: 100%;
-    height: auto;
-    max-height: 360px;
+    max-width: min(92vw, 360px);
+    display: flex;
+    gap: 0;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
     border-radius: 15px;
-    object-fit: contain;
+    scrollbar-width: thin;
+    -webkit-overflow-scrolling: touch;
+    aspect-ratio: 4 / 5;
+    background-color: #000;
+}
+
+.hero-photo-scroll::-webkit-scrollbar {
+    height: 8px;
+}
+
+.hero-photo-scroll::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.45);
+    border-radius: 10px;
+}
+
+.profile-slide {
+    flex: 0 0 100%;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    object-fit: cover;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     transition: var(--transition);
+    scroll-snap-align: start;
 }
 
-.hero-photo img:hover {
+.profile-slide:hover {
     transform: scale(1.05);
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+.photo-dots {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 10px;
+}
+
+.photo-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.45);
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+}
+
+.photo-dot.active {
+    background-color: #3897f0;
 }
 
 @media (max-width: 768px) {
@@ -228,10 +277,17 @@ body.theme-light .theme-toggle:hover {
         text-align: center;
     }
     
-    .hero-photo img {
-        width: 220px;
-        height: auto;
-        max-height: 260px;
+    .hero-photo {
+        width: min(92vw, 360px);
+    }
+
+    .hero-photo-scroll {
+        width: 100%;
+        scrollbar-width: none;
+    }
+
+    .hero-photo-scroll::-webkit-scrollbar {
+        display: none;
     }
 }
 
@@ -382,6 +438,11 @@ body.theme-light .theme-toggle:hover {
 
 .timeline-item:nth-child(4) {
     background-color: #5bb5ff;
+}
+
+body:not(.theme-light) .timeline-item:nth-child(2) .timeline-date,
+body:not(.theme-light) .timeline-item:nth-child(2) .company {
+    color: #f8fafc;
 }
 
 .timeline-item:hover {
