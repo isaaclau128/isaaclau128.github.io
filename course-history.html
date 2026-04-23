@@ -51,178 +51,155 @@
 
     <section id="courses" class="course-history">
         <div class="container">
-            <h2>Course History</h2>
-            <p class="description">Number of credits for each course is indicated in parentheses.</p>
+            <!--<h2>Course History</h2>-->
+            <p class="description">Number of credits for each course is indicated in parentheses. Scroll on the bottom of the window to view all semesters!</p>
 
-            <div class="semester">
-                <h3>Spring 2025-2026 (Current Semester)</h3>
-                <div class="course">
-            <span class="course-name">COMP2012 - Object Oriented Programming (4)</span>
-            </div>
-            <div class="course">
-                <span class="course-name">ELEC2400 - Electronic Circuits (4)</span>
-            </div>
-            <div class="course">
-                <span class="course-name">FINA2303 - Financial Management (3)</span>
-            </div>
-            <div class="course">
-                <span class="course-name">HUMA1102 - Introduction to Classical Music (3)</span>
-            </div>
-            <div class="course">
-                <span class="course-name">ISOM2600 - Introduction to Business Analytics (1)</span>
-            </div>
-            <div class="course">
-                <span class="course-name">LANG2064 - Speaking for Workplace Success (3)</span>
-            </div>
-            <div class="course">
-                <span class="course-name">MGMT2110 - Organizational Behavior (3)</span>
-            </div>
-            <!---
-            <div class="course">
-                <span class="course-name">CPEG1971 - Industrial Training (0)</span>
-            </div>
-            -->
-            <div class="course">
-                <span class="course-name">CPEG2930 - Academic and Professional Development II (0)</span>
-            </div>
-            <div class="course">
-                <span class="course-name">ENGG2010 - Engineering Seminar Series (0)</span>
-            </div>
-            <div class="course">
-                <span class="course-name">TEMG1010 - T&M Professional Activities (0)</span>
-            </div>
-                
-            </div>
+            <div class="excel-window">
+                <div class="excel-titlebar">
+                    <span class="excel-dot excel-dot-close" aria-hidden="true"></span>
+                    <span class="excel-dot excel-dot-minimize" aria-hidden="true"></span>
+                    <span class="excel-dot excel-dot-zoom" aria-hidden="true"></span>
+                    <span class="excel-file">CourseHistory.xlsx</span>
+                </div>
+                <div class="excel-ribbon">
+                    <span>File</span>
+                    <span>Home</span>
+                    <span>Insert</span>
+                    <span>Page Layout</span>
+                    <span>Formulas</span>
+                    <span>Data</span>
+                    <span>Review</span>
+                    <span>View</span>
+                </div>
+                <div class="excel-grid-header" aria-hidden="true">
+                    <div class="excel-corner"></div>
+                    <div class="excel-columns">
+                        <span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span><span>G</span><span>H</span>
+                    </div>
+                </div>
+                <div class="excel-sheet">
+                    <input type="radio" name="semester-tab" id="semester-current" checked>
+                    <input type="radio" name="semester-tab" id="semester-winter-2025">
+                    <input type="radio" name="semester-tab" id="semester-fall-2025">
+                    <input type="radio" name="semester-tab" id="semester-summer-2024">
+                    <input type="radio" name="semester-tab" id="semester-spring-2024">
+                    <input type="radio" name="semester-tab" id="semester-winter-2024">
+                    <input type="radio" name="semester-tab" id="semester-fall-2024">
 
-            <div class="semester">
-                <h3>Winter 2025-2026</h3>
-                <div class="course">
-                    <span class="course-name">TEMG4970F - T&M IBPC in Saudi Arabia (3)</span>
-                </div>
-            </div>
-            
-            <div class="semester">
-                <h3>Fall 2025-2026</h3>
-                <div class="course">
-                    <span class="course-name">COMP2011 - Programming with C++ (4)</span>
-                </div>
-                <div class="course">
-                    <span class="course-name">ECON2103 - Principles of Microeconomics (3)</span>
-                </div>
-                <div class="course">
-                    <span class="course-name">ISOM2500 - Business Statistics (3)</span>
-                </div>
-                <div class="course">
-                    <span class="course-name">ISOM2700 - Operations Management (3)</span>
-                </div>
-                <div class="course">
-                    <span class="course-name">MARK2120 - Marketing Management (3)</span>
-                </div>
-                <div class="course">
-                    <span class="course-name">MATH2111 - Matrix Algebra and Applications (3)</span>
-                </div>
-                <div class="course">
-                    <span class="course-name">PHYS1114 - General Physics II (3)</span>
-                </div>
-                <div class="course">
-                    <span class="course-name">CPEG2930 - Academic and Professional Development II (0)</span>
-                </div>
-                <div class="course">
-                    <span class="course-name">EMIA2010B - Corss-disciplinary Seminar: Digital Media and Creative Arts (0)</span>
-                </div>
-                <div class="course">
-                    <span class="course-name">ENGG2010 - Engineering Seminar Series (0)</span>
-                </div>
-                <div class="course">
-                    <span class="course-name">TEMG1010 - T&M Professional Activities (0)</span>
-                </div>
-            </div>
+                    <div class="excel-grid-area">
+                        <div class="excel-row-headers" aria-hidden="true"></div>
 
-            <div class="semester">
-                <h3>Summer 2024-2025</h3>
-                <div class="course">
-                    <span class="course-name">ACCT2010 - Principles of Accounting I (3)</span>
-                </div>
-                <h4 class="transfer-heading">Transferred Credits from University of Oxford - Lady Margaret Hall Summer Programmes</h4>
-                <div class="course">
-                    <span class="course-name">COMPA&T - Computer Science Track Course (3)</span>
-                </div>
-                <div class="course">
-                    <span class="course-name">ELEC3810 - Data Science for Neural Engineering (3)</span>
-                </div>
-            </div>
+                        <div class="semester-panels">
+                        <section class="semester-panel panel-current">
+                            <h3>Spring 2025-2026 <span class="current-semester-tag">Current Semester</span></h3>
+                            <div class="semester">
+                                <div class="course"><span class="course-name">COMP2012 - Object Oriented Programming (4)</span></div>
+                                <div class="course"><span class="course-name">ELEC2400 - Electronic Circuits (4)</span></div>
+                                <div class="course"><span class="course-name">FINA2303 - Financial Management (3)</span></div>
+                                <div class="course"><span class="course-name">HUMA1102 - Introduction to Classical Music (3)</span></div>
+                                <div class="course"><span class="course-name">ISOM2600 - Introduction to Business Analytics (1)</span></div>
+                                <div class="course"><span class="course-name">LANG2064 - Speaking for Workplace Success (3)</span></div>
+                                <div class="course"><span class="course-name">MGMT2110 - Organizational Behavior (3)</span></div>
+                                <!---
+                                <div class="course"><span class="course-name">CPEG1971 - Industrial Training (0)</span></div>
+                                -->
+                                <div class="course"><span class="course-name">CPEG2930 - Academic and Professional Development II (0)</span></div>
+                                <div class="course"><span class="course-name">ENGG2010 - Engineering Seminar Series (0)</span></div>
+                                <div class="course"><span class="course-name">TEMG1010 - T&M Professional Activities (0)</span></div>
+                            </div>
+                        </section>
 
-            <div class="semester">
-                <h3>Spring 2024-2025</h3>
-                <div class="course">
-                    <span class="course-name">CIVL1100 - Discovering Civil and Environmental Engineering (3)</span>
-                </div>
-                <div class="course">
-                    <span class="course-name">ELEC1100 - Introduction to Electro-Robot Design (4)</span>
-                </div>
-                <div class="course">
-                    <span class="course-name">HUMA2104 - Music Theory I: Introduction to Tonal Music (3)</span>
-                </div>
-                <div class="course">
-                    <span class="course-name">MATH1014 - Calculus II (3)</span>
-                </div>
-                <div class="course">
-                    <span class="course-name">TEMG3950 - T&M Case Analysis and Product Innovation (3)</span>
-                </div>
-                <div class="course">
-                    <span class="course-name">HMAW1905B - Behavioral Foundations of University Education: Habts, Mindsets, and Wellness (2)</span>
-                </div>
-            </div>
+                        <section class="semester-panel panel-winter-2025">
+                            <h3>Winter 2025-2026</h3>
+                            <div class="semester">
+                                <div class="course"><span class="course-name">TEMG4970F - T&M IBPC in Saudi Arabia (3)</span></div>
+                            </div>
+                        </section>
 
-            <div class="semester">
-                <h3>Winter 2024-2025</h3>
-                <div class="course">
-                    <span class="course-name">ISOM1090 - Social Media: Collective Intelligence & Creativity (3)</span>
-                </div>
-            </div>
+                        <section class="semester-panel panel-fall-2025">
+                            <h3>Fall 2025-2026</h3>
+                            <div class="semester">
+                                <div class="course"><span class="course-name">COMP2011 - Programming with C++ (4)</span></div>
+                                <div class="course"><span class="course-name">ECON2103 - Principles of Microeconomics (3)</span></div>
+                                <div class="course"><span class="course-name">ISOM2500 - Business Statistics (3)</span></div>
+                                <div class="course"><span class="course-name">ISOM2700 - Operations Management (3)</span></div>
+                                <div class="course"><span class="course-name">MARK2120 - Marketing Management (3)</span></div>
+                                <div class="course"><span class="course-name">MATH2111 - Matrix Algebra and Applications (3)</span></div>
+                                <div class="course"><span class="course-name">PHYS1114 - General Physics II (3)</span></div>
+                                <div class="course"><span class="course-name">CPEG2930 - Academic and Professional Development II (0)</span></div>
+                                <div class="course"><span class="course-name">EMIA2010B - Corss-disciplinary Seminar: Digital Media and Creative Arts (0)</span></div>
+                                <div class="course"><span class="course-name">ENGG2010 - Engineering Seminar Series (0)</span></div>
+                                <div class="course"><span class="course-name">TEMG1010 - T&M Professional Activities (0)</span></div>
+                            </div>
+                        </section>
 
-            <div class="semester">
-                <h3>Fall 2024-2025</h3>
-                <div class="course">
-                    <span class="course-name">COMP1021 - Introduction to Computer Science (3)</span>
-                </div>
-                <div class="course">
-                    <span class="course-name">ENGG1400 - Designing Your Life for Engineering Students (1)</span>
-                </div>
-                <div class="course">
-                    <span class="course-name">HUMA2101 - Enjoyment of Western Opera (3)</span>
-                </div>
-                <div class="course">
-                    <span class="course-name">LANG1407 - Academic English for Engineering Studies (3)</span>
-                </div>
-                <div class="course">
-                    <span class="course-name">PHYS1112 - General Physics I with Calculus (3)</span>
-                </div>
-                <div class="course">
-                    <span class="course-name">HMAW1905B - Behavioral Foundations of University Education: Habts, Mindsets, and Wellness (1)</span>
-                </div>
-                <div class="course">
-                    <span class="course-name">LEGL1100 - Legal Education (Basic Law, National Security Law and Safeguarding National Security Ordinance) (0)</span>
-                </div>
+                        <section class="semester-panel panel-summer-2024">
+                            <h3>Summer 2024-2025</h3>
+                            <div class="semester">
+                                <div class="course"><span class="course-name">ACCT2010 - Principles of Accounting I (3)</span></div>
+                                <h4 class="transfer-heading">Transferred Credits from University of Oxford - Lady Margaret Hall Summer Programmes</h4>
+                                <div class="course"><span class="course-name">COMPA&T - Computer Science Track Course (3)</span></div>
+                                <div class="course"><span class="course-name">ELEC3810 - Data Science for Neural Engineering (3)</span></div>
+                            </div>
+                        </section>
 
-                <h4 class="transfer-heading">Transferred Credits from IBDP results</h4>
-                
-                <div class="course">
-                    <span class="course-name">CHEM1101 - General Chemistry A: Reactions, Thermodynamics, and Reaction Kinetics (3)</span>
+                        <section class="semester-panel panel-spring-2024">
+                            <h3>Spring 2024-2025</h3>
+                            <div class="semester">
+                                <div class="course"><span class="course-name">CIVL1100 - Discovering Civil and Environmental Engineering (3)</span></div>
+                                <div class="course"><span class="course-name">ELEC1100 - Introduction to Electro-Robot Design (4)</span></div>
+                                <div class="course"><span class="course-name">HUMA2104 - Music Theory I: Introduction to Tonal Music (3)</span></div>
+                                <div class="course"><span class="course-name">MATH1014 - Calculus II (3)</span></div>
+                                <div class="course"><span class="course-name">TEMG3950 - T&M Case Analysis and Product Innovation (3)</span></div>
+                                <div class="course"><span class="course-name">HMAW1905B - Behavioral Foundations of University Education: Habts, Mindsets, and Wellness (2)</span></div>
+                            </div>
+                        </section>
+
+                        <section class="semester-panel panel-winter-2024">
+                            <h3>Winter 2024-2025</h3>
+                            <div class="semester">
+                                <div class="course"><span class="course-name">ISOM1090 - Social Media: Collective Intelligence & Creativity (3)</span></div>
+                            </div>
+                        </section>
+
+                        <section class="semester-panel panel-fall-2024">
+                            <h3>Fall 2024-2025</h3>
+                            <div class="semester">
+                                <div class="course"><span class="course-name">COMP1021 - Introduction to Computer Science (3)</span></div>
+                                <div class="course"><span class="course-name">ENGG1400 - Designing Your Life for Engineering Students (1)</span></div>
+                                <div class="course"><span class="course-name">HUMA2101 - Enjoyment of Western Opera (3)</span></div>
+                                <div class="course"><span class="course-name">LANG1407 - Academic English for Engineering Studies (3)</span></div>
+                                <div class="course"><span class="course-name">PHYS1112 - General Physics I with Calculus (3)</span></div>
+                                <div class="course"><span class="course-name">HMAW1905B - Behavioral Foundations of University Education: Habts, Mindsets, and Wellness (1)</span></div>
+                                <div class="course"><span class="course-name">LEGL1100 - Legal Education (Basic Law, National Security Law and Safeguarding National Security Ordinance) (0)</span></div>
+
+                                <h4 class="transfer-heading">Transferred Credits from IBDP results</h4>
+
+                                <div class="course"><span class="course-name">CHEM1101 - General Chemistry A: Reactions, Thermodynamics, and Reaction Kinetics (3)</span></div>
+                                <div class="course"><span class="course-name">CHEM1051 - Laboratory for General Chemistry A (1)</span></div>
+                                <div class="course"><span class="course-name">COREBROAD - Common Core Course in Broadening Group (6)</span></div>
+                                <div class="course"><span class="course-name">MATH1013 - Calculus IB (3)</span></div>
+                                <div class="course"><span class="course-name">OTHRFREE - Free Credits (9)</span></div>
+                            </div>
+                        </section>
+                        </div>
+                    </div>
+
+                    <div class="excel-tabs" role="tablist" aria-label="Semester tabs">
+                        <label class="excel-tab excel-tab-active" for="semester-current">Spring 2025-2026</label>
+                        <label class="excel-tab" for="semester-winter-2025">Winter 2025-2026</label>
+                        <label class="excel-tab" for="semester-fall-2025">Fall 2025-2026</label>
+                        <label class="excel-tab" for="semester-summer-2024">Summer 2024-2025</label>
+                        <label class="excel-tab" for="semester-spring-2024">Spring 2024-2025</label>
+                        <label class="excel-tab" for="semester-winter-2024">Winter 2024-2025</label>
+                        <label class="excel-tab" for="semester-fall-2024">Fall 2024-2025</label>
+                    </div>
+                    <div class="excel-tab-scrollbar" aria-hidden="true">
+                        <div class="excel-tab-scrollbar-track">
+                            <div class="excel-tab-scrollbar-thumb"></div>
+                        </div>
+                    </div>
                 </div>
-                <div class="course">
-                    <span class="course-name">CHEM1051 - Laboratory for General Chemistry A (1)</span>
-                </div>
-                <div class="course">
-                    <span class="course-name">COREBROAD - Common Core Course in Broadening Group (6)</span>
-                </div>
-                <div class="course">
-                    <span class="course-name">MATH1013 - Calculus IB (3)</span>
-                </div>
-                <div class="course">
-                    <span class="course-name">OTHRFREE - Free Credits (9)</span>
-                </div>
-                
             </div>
         </div>
     </section>
@@ -255,6 +232,119 @@
                 const next = document.body.classList.contains('theme-light') ? 'dark' : 'light';
                 applyTheme(next);
             });
+        })();
+    </script>
+    <script>
+        (() => {
+            const excelSheet = document.querySelector('.excel-sheet');
+            const rowHeaders = document.querySelector('.excel-row-headers');
+            const tabs = Array.from(document.querySelectorAll('.excel-tab'));
+            const tabsStrip = document.querySelector('.excel-tabs');
+            const scrollbarTrack = document.querySelector('.excel-tab-scrollbar-track');
+            const scrollbarThumb = document.querySelector('.excel-tab-scrollbar-thumb');
+            const semesterInputs = Array.from(document.querySelectorAll('.excel-sheet > input[name="semester-tab"]'));
+            const panels = Array.from(document.querySelectorAll('.semester-panel'));
+
+            const rowCount = 12;
+
+            const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
+
+            const updateTabScrollbar = () => {
+                if (!tabsStrip || !scrollbarTrack || !scrollbarThumb) {
+                    return;
+                }
+
+                const visibleWidth = tabsStrip.clientWidth;
+                const totalWidth = tabsStrip.scrollWidth;
+                const maxScroll = Math.max(1, totalWidth - visibleWidth);
+                const ratio = visibleWidth / totalWidth;
+                const thumbWidth = Math.max(56, Math.round(scrollbarTrack.clientWidth * ratio));
+                const thumbMaxLeft = Math.max(0, scrollbarTrack.clientWidth - thumbWidth);
+                const thumbLeft = Math.round((tabsStrip.scrollLeft / maxScroll) * thumbMaxLeft);
+
+                scrollbarThumb.style.width = `${thumbWidth}px`;
+                scrollbarThumb.style.left = `${thumbLeft}px`;
+            };
+
+            const scrollTabsToThumb = (clientX) => {
+                if (!tabsStrip || !scrollbarTrack || !scrollbarThumb) {
+                    return;
+                }
+
+                const trackRect = scrollbarTrack.getBoundingClientRect();
+                const thumbWidth = scrollbarThumb.offsetWidth;
+                const thumbMaxLeft = Math.max(0, scrollbarTrack.clientWidth - thumbWidth);
+                const pointerOffset = clamp(clientX - trackRect.left - thumbWidth / 2, 0, thumbMaxLeft);
+                const scrollMax = Math.max(1, tabsStrip.scrollWidth - tabsStrip.clientWidth);
+                tabsStrip.scrollLeft = (pointerOffset / thumbMaxLeft) * scrollMax || 0;
+            };
+
+            const updateExcelLayout = () => {
+                rowHeaders.innerHTML = '';
+                for (let index = 1; index <= rowCount; index += 1) {
+                    const rowCell = document.createElement('span');
+                    rowCell.textContent = index;
+                    rowHeaders.appendChild(rowCell);
+                }
+
+                excelSheet.style.setProperty('--excel-row-count', rowCount);
+                updateTabScrollbar();
+            };
+
+            semesterInputs.forEach((input) => {
+                input.addEventListener('change', updateExcelLayout);
+            });
+
+            tabs.forEach((tab) => {
+                tab.addEventListener('click', updateExcelLayout);
+            });
+
+            if (tabsStrip) {
+                tabsStrip.addEventListener('scroll', updateTabScrollbar);
+            }
+
+            if (scrollbarTrack) {
+                scrollbarTrack.addEventListener('click', (event) => {
+                    scrollTabsToThumb(event.clientX);
+                    updateTabScrollbar();
+                });
+            }
+
+            if (scrollbarThumb) {
+                let dragging = false;
+                let dragOffset = 0;
+
+                scrollbarThumb.addEventListener('pointerdown', (event) => {
+                    dragging = true;
+                    dragOffset = event.offsetX;
+                    scrollbarThumb.setPointerCapture(event.pointerId);
+                });
+
+                scrollbarThumb.addEventListener('pointermove', (event) => {
+                    if (!dragging || !tabsStrip || !scrollbarTrack) {
+                        return;
+                    }
+
+                    const trackRect = scrollbarTrack.getBoundingClientRect();
+                    const thumbWidth = scrollbarThumb.offsetWidth;
+                    const thumbMaxLeft = Math.max(0, scrollbarTrack.clientWidth - thumbWidth);
+                    const pointerLeft = clamp(event.clientX - trackRect.left - dragOffset, 0, thumbMaxLeft);
+                    const scrollMax = Math.max(1, tabsStrip.scrollWidth - tabsStrip.clientWidth);
+                    tabsStrip.scrollLeft = (pointerLeft / thumbMaxLeft) * scrollMax || 0;
+                    updateTabScrollbar();
+                });
+
+                const stopDragging = () => {
+                    dragging = false;
+                };
+
+                scrollbarThumb.addEventListener('pointerup', stopDragging);
+                scrollbarThumb.addEventListener('pointercancel', stopDragging);
+            }
+
+            window.addEventListener('load', updateExcelLayout);
+            window.addEventListener('resize', updateTabScrollbar);
+            updateExcelLayout();
         })();
     </script>
 </body>

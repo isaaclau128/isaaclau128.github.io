@@ -11,6 +11,7 @@
     --panel-color: #1f2937;
     --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
     --transition: all 0.3s ease;
+    --excel-row-height: 38.4px;
 }
 
 body.theme-light {
@@ -148,10 +149,42 @@ body.theme-light .theme-toggle:hover {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-    color: var(--white);
+    background:
+        repeating-linear-gradient(
+            180deg,
+            transparent 0,
+            transparent 34px,
+            rgba(52, 152, 219, 0.78) 34px,
+            rgba(52, 152, 219, 0.78) 35px
+        ),
+        linear-gradient(180deg, rgba(255, 252, 246, 0.99), rgba(247, 243, 235, 0.99));
+    color: #1f2937;
     padding: 80px 0;
     text-align: center;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(31, 41, 55, 0.12);
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(90deg, transparent 0, transparent 74px, rgba(192, 57, 43, 0.22) 74px, rgba(192, 57, 43, 0.22) 76px, transparent 76px);
+    background-repeat: no-repeat;
+    pointer-events: none;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 14px;
+    background: linear-gradient(180deg, rgba(31, 41, 55, 0.12), transparent);
+    pointer-events: none;
 }
 
 .hero-content {
@@ -178,7 +211,7 @@ body.theme-light .theme-toggle:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: -10px;
+    margin-top: 28px;
 }
 
 .hero-text h1 {
@@ -186,6 +219,14 @@ body.theme-light .theme-toggle:hover {
     margin-bottom: 1.5rem;
     animation: slideDown 0.8s ease;
     text-align: center;
+    font-family: 'Bradley Hand', 'Bradley Hand ITC', 'Brush Script MT', cursive;
+    color: #243447;
+}
+
+.hero-greeting-subline {
+    display: block;
+    font-size: 0.8em;
+    line-height: 1.05;
 }
 
 .hero-quote {
@@ -193,7 +234,7 @@ body.theme-light .theme-toggle:hover {
     font-style: italic;
     max-width: 520px;
     margin-bottom: 1.5rem;
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(31, 41, 55, 0.72);
 }
 
 .hero-photo {
@@ -204,20 +245,51 @@ body.theme-light .theme-toggle:hover {
     justify-content: center; 
 }
 
+.polaroid-frame {
+    position: relative;
+    display: inline-block;
+    background: #ffffff;
+    border: 1px solid rgba(31, 41, 55, 0.12);
+    border-radius: 4px;
+    padding: 0.8rem 0.8rem 3rem;
+    box-shadow:
+        0 18px 30px rgba(31, 41, 55, 0.2),
+        0 2px 0 rgba(255, 255, 255, 0.85) inset;
+    transform: rotate(-3deg);
+    transform-origin: center center;
+    transition: var(--transition);
+}
+
+.polaroid-frame:hover {
+    transform: rotate(-1deg) scale(1.04);
+    box-shadow:
+        0 24px 42px rgba(31, 41, 55, 0.24),
+        0 2px 0 rgba(255, 255, 255, 0.9) inset;
+}
+
 .hero-photo img {
+    display: block;
     width: 320px;
     max-width: 100%;
     height: auto;
     max-height: 360px;
-    border-radius: 15px;
+    border-radius: 2px;
     object-fit: contain;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    transition: var(--transition);
+    border: 1px solid rgba(31, 41, 55, 0.08);
 }
 
-.hero-photo img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+.hero-photo .polaroid-frame .polaroid-caption {
+    position: absolute;
+    left: 50%;
+    bottom: 0.95rem;
+    transform: translateX(-50%);
+    width: calc(100% - 2.2rem);
+    text-align: center;
+    font-family: 'Bradley Hand', 'Bradley Hand ITC', 'Brush Script MT', cursive !important;
+    font-size: 1.22rem;
+    color: #4b5563;
+    letter-spacing: 0.2px;
+    pointer-events: none;
 }
 
 @media (max-width: 768px) {
@@ -235,6 +307,16 @@ body.theme-light .theme-toggle:hover {
         width: 220px;
         height: auto;
         max-height: 260px;
+    }
+
+    .polaroid-frame {
+        padding: 0.65rem 0.65rem 2.3rem;
+        transform: rotate(-2deg);
+    }
+
+    .hero-photo .polaroid-frame .polaroid-caption {
+        bottom: 0.72rem;
+        font-size: 1rem;
     }
 }
 
@@ -260,33 +342,126 @@ body.theme-light .theme-toggle:hover {
     box-sizing: border-box;
 }
 
-.hero-text .contact-info p {
-    margin: 0;
-    color: var(--white);
-    font-size: 1.3rem;
-    text-align: center;
+.contact-stickers {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 0;
+    flex-wrap: wrap;
+    max-width: 620px;
+    margin: 0 auto;
+    padding-top: 0.5rem;
+    min-height: 240px;
 }
 
-.contact-info a {
-    color: var(--white);
+.contact-sticker {
+    width: 160px;
+    min-height: 178px;
+    padding: 1rem 0.85rem 0.9rem;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow:
+        0 14px 30px rgba(31, 41, 55, 0.14),
+        0 0 0 1px rgba(31, 41, 55, 0.08);
     text-decoration: none;
-    transition: var(--transition);
-    display: inline-flex;
+    color: #243447;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 0.5rem;
+    justify-content: flex-start;
+    gap: 0.85rem;
+    transition: var(--transition);
+    position: relative;
+    --sticker-rotation: 0deg;
+    --sticker-shift-x: 0px;
+    --sticker-shift-y: 0px;
+    transform: translate(var(--sticker-shift-x), var(--sticker-shift-y)) rotate(var(--sticker-rotation));
 }
 
-.contact-info a i {
-    font-size: 1.4rem;
+.contact-sticker:hover {
+    transform: translate(calc(var(--sticker-shift-x) + 0px), calc(var(--sticker-shift-y) - 6px)) rotate(var(--sticker-rotation)) scale(1.03);
+    box-shadow:
+        0 18px 40px rgba(31, 41, 55, 0.18),
+        0 0 0 1px rgba(31, 41, 55, 0.12);
 }
 
-.contact-info a:visited {
-    color: var(--white);
+.contact-sticker:nth-child(1) {
+    z-index: 3;
+    --sticker-rotation: -10deg;
+    --sticker-shift-x: -10px;
+    --sticker-shift-y: 18px;
 }
 
-.contact-info a:hover {
-    opacity: 0.8;
-    transform: scale(1.05);
+.contact-sticker:nth-child(2) {
+    z-index: 2;
+    --sticker-rotation: 7deg;
+    --sticker-shift-x: 8px;
+    --sticker-shift-y: -8px;
+}
+
+.contact-sticker:nth-child(3) {
+    z-index: 1;
+    --sticker-rotation: -4deg;
+    --sticker-shift-x: 16px;
+    --sticker-shift-y: 22px;
+}
+
+.sticker-icon {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 28%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    background: #ffffff;
+    box-shadow:
+        inset 0 1px 1px rgba(255, 255, 255, 0.4),
+        inset 0 -8px 18px rgba(0, 0, 0, 0.18),
+        0 8px 16px rgba(31, 41, 55, 0.12);
+}
+
+.sticker-icon::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.34), rgba(255, 255, 255, 0) 38%);
+    pointer-events: none;
+}
+
+.sticker-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    position: relative;
+    z-index: 1;
+}
+
+.gmail-icon {
+    background: #ffffff;
+}
+
+.github-icon {
+    background: #ffffff;
+}
+
+.linkedin-icon {
+    background: #ffffff;
+}
+
+.linkedin-icon img {
+    transform: scale(1.08);
+    transform-origin: center;
+}
+
+.sticker-label {
+    font-size: 0.9rem;
+    line-height: 1.2;
+    text-align: center;
+    word-break: break-word;
+    font-weight: 600;
 }
 
 /* Buttons */
@@ -334,12 +509,88 @@ body.theme-light .theme-toggle:hover {
     color: var(--secondary-color);
 }
 
-.about p {
+.word-document {
+    max-width: 920px;
+    margin: 0 auto;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 18px 38px rgba(15, 23, 42, 0.2);
+    border: 1px solid rgba(15, 23, 42, 0.18);
+    background: #f3f4f6;
+}
+
+.word-titlebar {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.65rem 1rem;
+    background: #185abd;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.92rem;
+}
+
+.word-window-controls {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    margin-right: 0.2rem;
+}
+
+.word-dot {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.55), 0 0 0 1px rgba(0, 0, 0, 0.15);
+}
+
+.word-dot-close {
+    background: #ff5f57;
+}
+
+.word-dot-minimize {
+    background: #febc2e;
+}
+
+.word-dot-zoom {
+    background: #28c840;
+}
+
+.word-app {
+    background: rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    padding: 0.15rem 0.5rem;
+}
+
+.word-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 0.55rem 1rem;
+    background: #f8fafc;
+    border-bottom: 1px solid #d1d5db;
+    color: #334155;
+    font-size: 0.9rem;
+}
+
+.word-page-wrap {
+    padding: 2rem;
+    background: #e5e7eb;
+}
+
+#about-text {
     font-size: 1.1rem;
-    max-width: 800px;
+    max-width: 760px;
     margin: 0 auto;
     text-align: justify;
     line-height: 1.8;
+    color: #111827;
+    background: #ffffff;
+    border: 1px solid #d1d5db;
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.12);
+    padding: 2rem 2.2rem;
+    min-height: 280px;
 }
 
 /* Experience Section */
@@ -604,52 +855,395 @@ body:not(.theme-light) .timeline-item:nth-child(2) .company {
 
 .course-history {
     padding: 60px 0;
-    background-color: var(--light-bg);
+    background: linear-gradient(180deg, #e5e7eb 0%, #dbeafe 100%);
 }
 
 .course-history h2 {
     font-size: 2.5rem;
-    margin-bottom: 2.5rem;
+    margin-bottom: 1rem;
     text-align: center;
-    color: var(--secondary-color);
+    color: #14532d;
+}
+
+.course-history .description {
+    text-align: center;
+    color: #334155;
+    margin-bottom: 1.5rem;
+}
+
+.excel-window {
+    display: flex;
+    flex-direction: column;
+    max-width: 980px;
+    margin: 0 auto;
+    border: 1px solid #9ca3af;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 18px 38px rgba(15, 23, 42, 0.18);
+    background: #f8fafc;
+}
+
+.excel-titlebar {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.6rem 0.85rem;
+    background: #107c41;
+    color: #ecfdf5;
+    font-weight: 700;
+}
+
+.excel-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.5);
+}
+
+.excel-dot-close {
+    background: #ff5f57;
+}
+
+.excel-dot-minimize {
+    background: #febc2e;
+}
+
+.excel-dot-zoom {
+    background: #28c840;
+}
+
+.excel-file {
+    margin-left: 0.5rem;
+    letter-spacing: 0.2px;
+}
+
+.excel-ribbon {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 0.65rem 0.9rem;
+    background: #f3f4f6;
+    border-bottom: 1px solid #d1d5db;
+    font-size: 0.9rem;
+    color: #334155;
+}
+
+.excel-grid-header {
+    display: flex;
+    align-items: stretch;
+    padding: 0 1rem;
+}
+
+.excel-corner {
+    flex: 0 0 3.35rem;
+    background: #e5e7eb;
+    border-right: 1px solid #cbd5e1;
+    border-bottom: 1px solid #cbd5e1;
+    height: var(--excel-row-height);
+}
+
+.excel-columns {
+    flex: 1 1 auto;
+    display: grid;
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+    background: #e5e7eb;
+    border-bottom: 1px solid #cbd5e1;
+}
+
+.excel-columns span {
+    text-align: center;
+    font-weight: 700;
+    color: #475569;
+    height: var(--excel-row-height);
+    padding: 0.35rem 0;
+    border-right: 1px solid #cbd5e1;
+}
+
+.excel-columns span:last-child {
+    border-right: none;
+}
+
+.excel-sheet {
+    padding: 0 1rem 0;
+    flex: 1 1 auto;
+    background:
+        linear-gradient(#f8fafc 0 0) padding-box,
+    repeating-linear-gradient(0deg, rgba(148, 163, 184, 0.2) 0, rgba(148, 163, 184, 0.2) 1px, transparent 1px, transparent var(--excel-row-height)),
+        repeating-linear-gradient(90deg, rgba(148, 163, 184, 0.15) 0, rgba(148, 163, 184, 0.15) 1px, transparent 1px, transparent 120px);
+}
+
+.excel-sheet > input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.semester-panels {
+    min-height: 360px;
+}
+
+.excel-grid-area {
+    display: flex;
+    align-items: stretch;
+    min-height: calc(12 * var(--excel-row-height));
+}
+
+.excel-row-headers {
+    flex: 0 0 3.35rem;
+    display: flex;
+    flex-direction: column;
+    background: #e5e7eb;
+    border-right: 1px solid #cbd5e1;
+    min-height: inherit;
+}
+
+.excel-row-headers span {
+    height: var(--excel-row-height);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #cbd5e1;
+    color: #475569;
+    font-weight: 700;
+    font-size: 0.85rem;
+}
+
+.semester-panels {
+    flex: 1 1 auto;
+    min-width: 0;
+    min-height: inherit;
+}
+
+.semester-panel {
+    display: none;
+    padding-bottom: 1rem;
+    min-height: inherit;
+}
+
+.semester-panel h3 {
+    display: none;
+}
+
+.current-semester-tag {
+    margin-left: auto;
+    padding: 0.24rem 0.55rem;
+    border-radius: 999px;
+    background: #bbf7d0;
+    color: #166534;
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+
+.excel-tab {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.35rem;
+    padding: 0.45rem 0.8rem;
+    background: #dcfce7;
+    border: 1px solid #86efac;
+    border-bottom: none;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    color: #166534;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
+    box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.6) inset;
+}
+
+.excel-tabs {
+    display: flex;
+    gap: 0.4rem;
+    align-items: flex-end;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    scrollbar-gutter: stable both-edges;
+    padding: 0.7rem 0.5rem 0.9rem;
+    margin: 0 -0.15rem;
+    background: #d1fae5;
+    border-top: 1px solid #86efac;
+    scrollbar-width: thin;
+    scrollbar-color: #16a34a #bbf7d0;
+    flex: 0 0 auto;
+}
+
+.excel-tabs::-webkit-scrollbar {
+    height: 12px;
+}
+
+.excel-tabs::-webkit-scrollbar-track {
+    background: #bbf7d0;
+    border-top: 1px solid #86efac;
+}
+
+.excel-tabs::-webkit-scrollbar-thumb {
+    background: #16a34a;
+    border-radius: 999px;
+    border: 2px solid #bbf7d0;
+}
+
+.excel-tab-scrollbar {
+    padding: 0 0.5rem 0.75rem;
+    background: #d1fae5;
+    border-top: 1px solid #86efac;
+    flex: 0 0 auto;
+}
+
+.excel-tab-scrollbar-track {
+    position: relative;
+    height: 12px;
+    border-radius: 999px;
+    background: #bbf7d0;
+    border: 1px solid #86efac;
+    overflow: hidden;
+}
+
+.excel-tab-scrollbar-thumb {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 120px;
+    border-radius: inherit;
+    background: linear-gradient(180deg, #22c55e 0%, #16a34a 100%);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35);
+    cursor: grab;
+}
+
+.excel-tab-scrollbar-thumb:active {
+    cursor: grabbing;
+}
+
+.excel-tab:hover {
+    background: #bbf7d0;
+}
+
+.semester-book,
+.current-book,
+.semester-cover,
+.semester-cover-title,
+.semester-cover-tag {
+    display: none;
 }
 
 .course-history .semester {
-    background-color: var(--panel-color);
-    margin-bottom: 1.5rem;
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: var(--shadow);
+    background-color: transparent;
+    margin-bottom: 0;
+    padding: 0;
+    border-top: none;
+    counter-reset: course-row;
+}
+
+.panel-current {
+    display: block;
+}
+
+#semester-winter-2025:checked ~ .excel-grid-area .panel-winter-2025,
+#semester-fall-2025:checked ~ .excel-grid-area .panel-fall-2025,
+#semester-summer-2024:checked ~ .excel-grid-area .panel-summer-2024,
+#semester-spring-2024:checked ~ .excel-grid-area .panel-spring-2024,
+#semester-winter-2024:checked ~ .excel-grid-area .panel-winter-2024,
+#semester-fall-2024:checked ~ .excel-grid-area .panel-fall-2024 {
+    display: block;
+}
+
+#semester-winter-2025:checked ~ .excel-grid-area .panel-current,
+#semester-fall-2025:checked ~ .excel-grid-area .panel-current,
+#semester-summer-2024:checked ~ .excel-grid-area .panel-current,
+#semester-spring-2024:checked ~ .excel-grid-area .panel-current,
+#semester-winter-2024:checked ~ .excel-grid-area .panel-current,
+#semester-fall-2024:checked ~ .excel-grid-area .panel-current {
+    display: none;
+}
+
+#semester-current:checked ~ .excel-grid-area .panel-current {
+    display: block;
+}
+
+#semester-current:checked ~ .excel-tabs label[for="semester-current"],
+#semester-winter-2025:checked ~ .excel-tabs label[for="semester-winter-2025"],
+#semester-fall-2025:checked ~ .excel-tabs label[for="semester-fall-2025"],
+#semester-summer-2024:checked ~ .excel-tabs label[for="semester-summer-2024"],
+#semester-spring-2024:checked ~ .excel-tabs label[for="semester-spring-2024"],
+#semester-winter-2024:checked ~ .excel-tabs label[for="semester-winter-2024"],
+#semester-fall-2024:checked ~ .excel-tabs label[for="semester-fall-2024"] {
+    background: #f8fafc;
+    border-color: #86efac;
+    color: #0f172a;
+    transform: translateY(1px);
+    position: relative;
+    z-index: 1;
 }
 
 .course-history .semester h3 {
-    color: var(--secondary-color);
+    color: #166534;
     margin-top: 0;
-    margin-bottom: 1rem;
-    border-bottom: 2px solid var(--primary-color);
-    padding-bottom: 0.5rem;
+    margin-bottom: 0.8rem;
+    border-bottom: 1px solid #86efac;
+    padding-bottom: 0.4rem;
+    font-size: 1.1rem;
 }
 
 .course-history .transfer-heading {
     margin-top: 1.25rem;
     margin-bottom: 0.75rem;
-    color: var(--primary-color);
+    color: #0f766e;
     font-size: 1rem;
     font-weight: 700;
 }
 
 .course-history .course {
-    padding: 0.75rem 0;
-    border-bottom: 1px solid #1f2937;
+    height: var(--excel-row-height);
+    padding: 0 0.35rem;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #e2e8f0;
 }
 
 .course-history .course:last-child {
     border-bottom: none;
 }
 
+.course-history .semester .course:nth-child(odd) {
+    background: rgba(219, 234, 254, 0.34);
+}
+
+.course-history .semester .course:nth-child(even) {
+    background: rgba(255, 255, 255, 0.72);
+}
+
 .course-history .course-name {
     font-weight: 700;
-    color: var(--text-color);
+    color: #111827;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    width: 100%;
+}
+
+.transfer-heading {
+    display: none;
+}
+
+.semester-book.current-book .semester-cover {
+    background: linear-gradient(135deg, #14532d 0%, #166534 100%);
+}
+
+.semester-book:not([open]) .semester {
+    display: none;
+}
+
+.semester-book[open] .semester-cover {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.semester-book[open] .semester {
+    border-top: 1px solid #b7c6d7;
 }
 
 /* Contact Section */
@@ -742,6 +1336,11 @@ footer a:hover {
         font-size: 2.5rem;
     }
 
+    .hero::before {
+        background:
+            linear-gradient(90deg, transparent 0, transparent 56px, rgba(192, 57, 43, 0.95) 56px, rgba(192, 57, 43, 0.95) 59px, transparent 59px);
+    }
+
     .subtitle {
         font-size: 1.2rem;
     }
@@ -796,6 +1395,11 @@ footer a:hover {
         width: 100%;
         max-width: 300px;
     }
+
+    .contact-stickers {
+        max-width: 100%;
+        min-height: auto;
+    }
 }
 
 /* Responsive Design - Mobile */
@@ -828,6 +1432,10 @@ footer a:hover {
     .hero-content h1 {
         font-size: 1.8rem;
         margin-bottom: 0.5rem;
+    }
+
+    .hero {
+        padding: 36px 0;
     }
 
     .subtitle {
@@ -931,6 +1539,27 @@ footer a:hover {
     .contact-links {
         flex-direction: column;
         gap: 0.8rem;
+    }
+
+    .contact-stickers {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.9rem;
+        min-height: auto;
+        padding-top: 0;
+    }
+
+    .contact-sticker {
+        width: min(100%, 240px);
+        transform: none;
+    }
+
+    .contact-sticker:nth-child(1),
+    .contact-sticker:nth-child(2),
+    .contact-sticker:nth-child(3) {
+        --sticker-rotation: 0deg;
+        --sticker-shift-x: 0px;
+        --sticker-shift-y: 0px;
     }
 
     .social-link,

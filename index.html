@@ -11,7 +11,7 @@
     <script>
         (() => {
             const saved = localStorage.getItem('theme');
-            const isLight = saved === 'light';
+            const isLight = saved !== 'dark';
             document.body.classList.toggle('theme-light', isLight);
         })();
     </script>
@@ -29,7 +29,7 @@
                     <li><a href="#skills">Skills</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
-                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle color theme">☀ Light</button>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle color theme">🌙 Dark</button>
             </div>
         </div>
     </nav>
@@ -40,8 +40,7 @@
             <div class="hero-content">
                 <div class="hero-wrapper">
                     <div class="hero-text">
-                        <h1>Hi, I'm Isaac.</h1>
-                        <p class="hero-quote">Make the impossible possible.</p>
+                        <h1>Hi, I'm Isaac.<span class="hero-greeting-subline">Nice to meet you!</span></h1>
                         <!-- 
                         <p class="subtitle">Technology Enthusiast</p>
                         
@@ -52,15 +51,27 @@
                         -->
                         <!-- <a href="#contact" class="btn btn-primary">Get In Touch</a> -->
                         <div class="contact-info">
-                            <p>
-                                <a href="mailto:isaactszhinlau@gmail.com" target="_blank"><i class="fas fa-envelope"></i> isaactszhinlau@gmail.com</a> | 
-                                <a href="https://github.com/isaaclau128" target="_blank"><i class="fab fa-github"></i> GitHub</a> | 
-                                <a href="https://www.linkedin.com/in/lautszhinisaac" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                            </p>
+                            <div class="contact-stickers">
+                                <a class="contact-sticker" href="mailto:isaac.lautszhin@gmail.com" target="_blank" aria-label="Email Isaac Lau Tsz Hin">
+                                    <span class="sticker-icon gmail-icon"><img src="appicons/gmail.png" alt="Gmail app icon"></span>
+                                    <span class="sticker-label">isaac.lautszhin<br>@gmail.com</span>
+                                </a>
+                                <a class="contact-sticker" href="https://github.com/isaaclau128" target="_blank" aria-label="Isaac Lau Tsz Hin on GitHub">
+                                    <span class="sticker-icon github-icon"><img src="appicons/github.png.webp" alt="GitHub app icon"></span>
+                                    <span class="sticker-label">GitHub</span>
+                                </a>
+                                <a class="contact-sticker" href="https://www.linkedin.com/in/lautszhinisaac" target="_blank" aria-label="Isaac Lau Tsz Hin on LinkedIn">
+                                    <span class="sticker-icon linkedin-icon"><img src="appicons/linkedin.jpg.avif" alt="LinkedIn app icon"></span>
+                                    <span class="sticker-label">LinkedIn</span>
+                                </a>
+                            </div>
                         </div>
                     </div>
                     <div class="hero-photo">
-                        <img src="profilepics/profile.jpg" alt="Isaac Lau Tsz Hin">
+                        <div class="polaroid-frame">
+                            <img src="profilepics/profile.jpg" alt="Isaac Lau Tsz Hin">
+                            <span class="polaroid-caption">Make the impossible possible.</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -70,8 +81,28 @@
     <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
-            <h2>About Me</h2>
-            <p id="about-text">Loading...</p>
+            <div class="word-document">
+                <div class="word-titlebar">
+                    <span class="word-window-controls" aria-hidden="true">
+                        <span class="word-dot word-dot-close"></span>
+                        <span class="word-dot word-dot-minimize"></span>
+                        <span class="word-dot word-dot-zoom"></span>
+                    </span>
+                    <span class="word-app">Word</span>
+                    <span class="word-filename">AboutMe.docx</span>
+                </div>
+                <div class="word-toolbar">
+                    <span>File</span>
+                    <span>Home</span>
+                    <span>Insert</span>
+                    <span>Layout</span>
+                    <span>Review</span>
+                    <span>View</span>
+                </div>
+                <div class="word-page-wrap">
+                    <p id="about-text">Loading...</p>
+                </div>
+            </div>
             <script>
                 fetch('about.txt')
                     .then(response => response.text())
@@ -281,7 +312,7 @@
             };
 
             const saved = localStorage.getItem('theme');
-            const initial = saved === 'light' ? 'light' : 'dark';
+            const initial = saved === 'dark' ? 'dark' : 'light';
             applyTheme(initial);
 
             toggleBtn.addEventListener('click', () => {
