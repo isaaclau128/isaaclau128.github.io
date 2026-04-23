@@ -60,12 +60,7 @@
                         </div>
                     </div>
                     <div class="hero-photo">
-                        <div class="hero-photo-scroll" id="hero-photo-scroll" aria-label="Profile picture gallery">
-                            <img class="profile-slide" src="profilepics/profile.jpg" alt="Isaac Lau Tsz Hin profile photo 1">
-                            <img class="profile-slide" src="profilepics/profile2.jpg" alt="Isaac Lau Tsz Hin profile photo 2">
-                            <img class="profile-slide" src="profilepics/profile3.jpg" alt="Isaac Lau Tsz Hin profile photo 3">
-                        </div>
-                        <div class="photo-dots" id="photo-dots" aria-hidden="true"></div>
+                        <img src="profile.jpg" alt="Isaac Lau Tsz Hin">
                     </div>
                 </div>
             </div>
@@ -290,95 +285,6 @@
             });
         })();
     </script>
-    <script>
-        (function() {
-            const photoScroller = document.getElementById('hero-photo-scroll');
-            const dotsWrapper = document.getElementById('photo-dots');
-            if (!photoScroller) {
-                return;
-            }
 
-            const slides = Array.from(photoScroller.querySelectorAll('.profile-slide'));
-            if (slides.length === 0 || !dotsWrapper) {
-                return;
-            }
-
-            let currentIndex = 0;
-            let autoAdvanceTimer;
-
-            slides.forEach((_, index) => {
-                const dot = document.createElement('button');
-                dot.type = 'button';
-                dot.className = index === 0 ? 'photo-dot active' : 'photo-dot';
-                dot.setAttribute('aria-label', `Show profile photo ${index + 1}`);
-                dot.addEventListener('click', () => {
-                    currentIndex = index;
-                    scrollToIndex(currentIndex);
-                    stopAutoAdvance();
-                    startAutoAdvance();
-                });
-                dotsWrapper.appendChild(dot);
-            });
-
-            const dots = Array.from(dotsWrapper.querySelectorAll('.photo-dot'));
-
-            const setActiveDot = (index) => {
-                dots.forEach((dot, dotIndex) => {
-                    dot.classList.toggle('active', dotIndex === index);
-                });
-            };
-
-            const scrollToIndex = (index, behavior = 'smooth') => {
-                const target = slides[index];
-                if (!target) {
-                    return;
-                }
-                photoScroller.scrollTo({
-                    left: target.offsetLeft,
-                    behavior
-                });
-                setActiveDot(index);
-            };
-
-            const startAutoAdvance = () => {
-                autoAdvanceTimer = setInterval(() => {
-                    currentIndex = (currentIndex + 1) % slides.length;
-                    scrollToIndex(currentIndex);
-                }, 3000);
-            };
-
-            const stopAutoAdvance = () => {
-                if (autoAdvanceTimer) {
-                    clearInterval(autoAdvanceTimer);
-                }
-            };
-
-            photoScroller.addEventListener('scroll', () => {
-                const containerCenter = photoScroller.scrollLeft + photoScroller.clientWidth / 2;
-                let nearestIndex = 0;
-                let nearestDistance = Number.POSITIVE_INFINITY;
-
-                slides.forEach((slide, index) => {
-                    const slideCenter = slide.offsetLeft + slide.clientWidth / 2;
-                    const distance = Math.abs(containerCenter - slideCenter);
-                    if (distance < nearestDistance) {
-                        nearestDistance = distance;
-                        nearestIndex = index;
-                    }
-                });
-
-                currentIndex = nearestIndex;
-                setActiveDot(currentIndex);
-            }, { passive: true });
-
-            photoScroller.addEventListener('touchstart', stopAutoAdvance, { passive: true });
-            photoScroller.addEventListener('touchend', () => {
-                stopAutoAdvance();
-                startAutoAdvance();
-            }, { passive: true });
-
-            startAutoAdvance();
-        })();
-    </script>
 </body>
 </html>
