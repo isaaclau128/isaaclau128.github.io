@@ -1026,7 +1026,7 @@ body:not(.theme-light) .timeline-item:nth-child(2) .company {
 .excel-grid-area {
     display: flex;
     align-items: stretch;
-    min-height: calc(12 * var(--excel-row-height));
+    min-height: calc(14 * var(--excel-row-height));
 }
 
 .excel-row-headers {
@@ -1229,6 +1229,7 @@ body:not(.theme-light) .timeline-item:nth-child(2) .company {
 }
 
 .course-history .transfer-heading {
+    display: block;
     margin-top: 1.25rem;
     margin-bottom: 0.75rem;
     color: #0f766e;
@@ -1264,10 +1265,6 @@ body:not(.theme-light) .timeline-item:nth-child(2) .company {
     text-overflow: ellipsis;
     display: block;
     width: 100%;
-}
-
-.transfer-heading {
-    display: none;
 }
 
 .semester-book.current-book .semester-cover {
