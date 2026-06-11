@@ -1260,7 +1260,7 @@ body:not(.theme-light) .timeline-item:nth-child(2) .company {
 }
 
 .panel-current {
-    display: block;
+    display: none;
 }
 
 #semester-winter-2025:checked ~ .excel-grid-area .panel-winter-2025,
@@ -1268,7 +1268,9 @@ body:not(.theme-light) .timeline-item:nth-child(2) .company {
 #semester-summer-2024:checked ~ .excel-grid-area .panel-summer-2024,
 #semester-spring-2024:checked ~ .excel-grid-area .panel-spring-2024,
 #semester-winter-2024:checked ~ .excel-grid-area .panel-winter-2024,
-#semester-fall-2024:checked ~ .excel-grid-area .panel-fall-2024 {
+#semester-fall-2024:checked ~ .excel-grid-area .panel-fall-2024,
+#semester-fall-2026:checked ~ .excel-grid-area .panel-fall-2026,
+#semester-spring-2025:checked ~ .excel-grid-area .panel-spring-2025 {
     display: block;
 }
 
@@ -1281,11 +1283,8 @@ body:not(.theme-light) .timeline-item:nth-child(2) .company {
     display: none;
 }
 
-#semester-current:checked ~ .excel-grid-area .panel-current {
-    display: block;
-}
-
-#semester-current:checked ~ .excel-tabs label[for="semester-current"],
+#semester-fall-2026:checked ~ .excel-tabs label[for="semester-fall-2026"],
+#semester-spring-2025:checked ~ .excel-tabs label[for="semester-spring-2025"],
 #semester-winter-2025:checked ~ .excel-tabs label[for="semester-winter-2025"],
 #semester-fall-2025:checked ~ .excel-tabs label[for="semester-fall-2025"],
 #semester-summer-2024:checked ~ .excel-tabs label[for="semester-summer-2024"],
