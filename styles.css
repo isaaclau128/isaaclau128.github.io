@@ -851,21 +851,21 @@ body:not(.theme-light) .timeline-item:nth-child(2) .company {
 
 .education-items {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
-    max-width: 1000px;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    max-width: 1080px;
     margin: 0 auto;
 }
 
 .education-item {
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(248, 250, 252, 0.96));
-    padding: 1.65rem;
+    padding: 1.5rem 1.75rem;
     border-radius: 18px;
     box-shadow: 0 14px 34px rgba(15, 23, 42, 0.12);
     border: 1px solid rgba(148, 163, 184, 0.25);
     display: flex;
     flex-direction: column;
-    gap: 0.9rem;
+    gap: 1rem;
     position: relative;
     overflow: hidden;
 }
@@ -880,8 +880,61 @@ body:not(.theme-light) .timeline-item:nth-child(2) .company {
 }
 
 .education-featured {
-    grid-column: 1 / -1;
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(241, 245, 249, 0.98));
+}
+
+.education-horizontal-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1.7fr) minmax(240px, 0.9fr);
+    align-items: start;
+    column-gap: 1.5rem;
+}
+
+.education-horizontal-card .education-card-header,
+.education-horizontal-card > .institution,
+.education-horizontal-card > .education-activities,
+.education-horizontal-card > .course-history-link {
+    grid-column: 1;
+}
+
+.education-horizontal-card .education-card-header {
+    margin-bottom: 0.15rem;
+}
+
+.education-horizontal-card .education-activities {
+    margin-top: 0;
+}
+
+.education-horizontal-card .course-history-link {
+    margin-top: auto;
+}
+
+.education-horizontal-card .education-activities {
+    border-top-color: rgba(148, 163, 184, 0.16);
+}
+
+.education-horizontal-card .education-meta {
+    grid-column: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.85rem;
+    min-height: 100%;
+    padding-top: 0.3rem;
+}
+
+.education-horizontal-card .education-meta .education-badge,
+.education-horizontal-card .education-meta .institution {
+    text-align: right;
+}
+
+.education-horizontal-card .education-meta .institution {
+    margin-left: auto;
+    margin-top: 0.2rem;
+}
+
+.education-horizontal-card .education-meta .graduation {
+    white-space: normal;
 }
 
 .education-card-header {
@@ -976,6 +1029,14 @@ body:not(.theme-light) .timeline-item:nth-child(2) .company {
 
 .course-history-link {
     margin-top: 0.4rem;
+}
+
+.education-featured .course-history-link {
+    align-self: flex-start;
+}
+
+.education-featured .course-history-link .btn-secondary {
+    min-width: 220px;
 }
 
 .course-history-link .btn-secondary:hover {
@@ -1622,6 +1683,26 @@ footer a:hover {
     .skills-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
+    }
+
+    .education-horizontal-card {
+        grid-template-columns: 1fr;
+    }
+
+    .education-horizontal-card .education-meta {
+        grid-column: auto;
+        align-items: flex-start;
+    }
+
+    .education-horizontal-card .education-meta .education-badge,
+    .education-horizontal-card .education-meta .institution {
+        text-align: left;
+        margin-left: 0;
+    }
+
+    .education-featured .course-history-link .btn-secondary {
+        min-width: 0;
+        width: 100%;
     }
 
     .contact-links {
