@@ -865,6 +865,37 @@ body:not(.theme-light) .timeline-item:nth-child(2) .company {
     font-size: 0.9rem;
 }
 
+.education-activities {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.education-activities h4 {
+    color: var(--secondary-color);
+    margin-bottom: 0.6rem;
+    font-size: 1rem;
+}
+
+.activities-list {
+    list-style: none;
+}
+
+.activities-list li {
+    padding-left: 1.4rem;
+    margin-bottom: 0.55rem;
+    position: relative;
+    color: #1f2937;
+}
+
+.activities-list li:before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
 .course-history-link {
     text-align: center;
     margin-top: 2rem;
