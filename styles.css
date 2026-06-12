@@ -96,17 +96,17 @@ body:not(.theme-light) .navbar {
 
 .navbar .container {
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
     gap: 1rem;
-    min-height: 46px;
-    padding: 0.45rem 20px;
+    min-height: 62px;
+    padding: 0.75rem 20px;
 }
 
 .nav-actions {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
     flex: 1 1 auto;
     gap: 0.75rem;
 }
