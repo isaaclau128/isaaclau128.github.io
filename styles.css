@@ -112,11 +112,12 @@ body:not(.theme-light) .navbar {
 }
 
 .logo {
-    font-size: 0.95rem;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.15rem;
     font-weight: 700;
     color: #111827;
     text-decoration: none;
-    letter-spacing: 0.01em;
+    letter-spacing: 0.02em;
 }
 
 .logo:visited,
@@ -139,12 +140,13 @@ body:not(.theme-light) .logo:hover {
 }
 
 .nav-links a {
+    font-family: 'Orbitron', sans-serif;
     text-decoration: none;
     color: #1f2937;
     transition: var(--transition);
-    font-weight: 400;
-    font-size: 0.88rem;
-    padding: 4px 10px;
+    font-weight: 500;
+    font-size: 1rem;
+    padding: 6px 12px;
     border-radius: 7px;
 }
 
@@ -163,15 +165,16 @@ body:not(.theme-light) .nav-links a:hover {
 }
 
 .theme-toggle {
+    font-family: 'Orbitron', sans-serif;
     background: rgba(15, 23, 42, 0.08);
     color: #1f2937;
     border: 1px solid rgba(15, 23, 42, 0.18);
-    padding: 6px 11px;
+    padding: 8px 14px;
     border-radius: 999px;
     cursor: pointer;
     transition: var(--transition);
-    font-weight: 650;
-    font-size: 0.82rem;
+    font-weight: 700;
+    font-size: 0.95rem;
 }
 
 .theme-toggle:hover {
