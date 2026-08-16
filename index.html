@@ -7,7 +7,7 @@
     <title>Isaac Lau Tsz Hin - Personal Portfolio</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Fraunces:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -21,8 +21,11 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
-            <a class="logo" href="#home">Isaac Lau Tsz Hin</a>
-            <div class="nav-actions">
+            <a class="logo" href="#home"><span class="logo-bracket">&lt;</span>Isaac Lau Tsz Hin<span class="logo-bracket">/&gt;</span><span class="logo-cursor">_</span></a>
+            <button id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+            <div class="nav-actions" id="nav-actions">
                 <ul class="nav-links">
                     <li><a href="#home">Profile</a></li>
                     <li><a href="#about">About</a></li>
@@ -52,33 +55,83 @@
                         <p class="description">BBA in Business Administration (Undeclared Major)</p>
                         -->
                         <!-- <a href="#contact" class="btn btn-primary">Get In Touch</a> -->
-                        <div class="contact-info">
-                            <div class="contact-stickers">
-                                <a class="contact-sticker" href="mailto:isaac.lautszhin@gmail.com" target="_blank"
-                                    aria-label="Email Isaac Lau Tsz Hin">
-                                    <span class="sticker-icon gmail-icon"><img src="appicons/gmail.png"
-                                            alt="Gmail app icon"></span>
-                                    <span class="sticker-label">isaac.lautszhin<br>@gmail.com</span>
-                                </a>
-                                <a class="contact-sticker" href="https://github.com/isaaclau128" target="_blank"
-                                    aria-label="Isaac Lau Tsz Hin on GitHub">
-                                    <span class="sticker-icon github-icon"><img src="appicons/github.png.webp"
-                                            alt="GitHub app icon"></span>
-                                    <span class="sticker-label">GitHub</span>
-                                </a>
-                                <a class="contact-sticker" href="https://www.linkedin.com/in/lautszhinisaac"
-                                    target="_blank" aria-label="Isaac Lau Tsz Hin on LinkedIn">
-                                    <span class="sticker-icon linkedin-icon"><img src="appicons/linkedin.jpg.avif"
-                                            alt="LinkedIn app icon"></span>
-                                    <span class="sticker-label">LinkedIn</span>
-                                </a>
+                        <div class="tech-terminal" role="group" aria-label="Terminal introduction">
+                            <div class="tech-terminal-titlebar">
+                                <span class="word-window-controls" aria-hidden="true">
+                                    <span class="word-dot word-dot-close"></span>
+                                    <span class="word-dot word-dot-minimize"></span>
+                                    <span class="word-dot word-dot-zoom"></span>
+                                </span>
+                                <span class="tech-terminal-title">zsh — isaac@hkust</span>
                             </div>
+                            <div class="tech-terminal-body">
+                                <pre id="terminal-output"></pre><span class="tech-terminal-cursor">&#9608;</span>
+                            </div>
+                        </div>
+                        <script>
+                            (function () {
+                                const lines = [
+                                    '$ whoami',
+                                    '> computer engineer  \u00d7  data scientist  \u00d7  musician',
+                                    '$ cat focus.txt',
+                                    '> shipping AI tools by day, composing music by night'
+                                ];
+                                const output = document.getElementById('terminal-output');
+                                let lineIndex = 0;
+                                let charIndex = 0;
+
+                                function typeNext() {
+                                    if (lineIndex >= lines.length) {
+                                        return;
+                                    }
+                                    const currentLine = lines[lineIndex];
+                                    output.textContent += currentLine.charAt(charIndex);
+                                    charIndex += 1;
+                                    if (charIndex < currentLine.length) {
+                                        setTimeout(typeNext, 28);
+                                    } else {
+                                        output.textContent += '\n';
+                                        lineIndex += 1;
+                                        charIndex = 0;
+                                        setTimeout(typeNext, 380);
+                                    }
+                                }
+
+                                typeNext();
+                            })();
+                        </script>
+                        <div class="hero-links">
+                            <a class="hero-link" href="mailto:isaac.lautszhin@gmail.com" target="_blank"
+                                aria-label="Email Isaac Lau Tsz Hin">
+                                <i class="fas fa-envelope" aria-hidden="true"></i>
+                                <span>Email</span>
+                            </a>
+                            <a class="hero-link" href="https://github.com/isaaclau128" target="_blank"
+                                aria-label="Isaac Lau Tsz Hin on GitHub">
+                                <i class="fab fa-github" aria-hidden="true"></i>
+                                <span>GitHub</span>
+                            </a>
+                            <a class="hero-link" href="https://www.linkedin.com/in/lautszhinisaac"
+                                target="_blank" aria-label="Isaac Lau Tsz Hin on LinkedIn">
+                                <i class="fab fa-linkedin" aria-hidden="true"></i>
+                                <span>LinkedIn</span>
+                            </a>
                         </div>
                     </div>
                     <div class="hero-photo">
-                        <div class="polaroid-frame">
-                            <img src="profilepics/profile.jpg" alt="Isaac Lau Tsz Hin">
-                            <span class="polaroid-caption">Make the impossible possible.</span>
+                        <div class="tech-photo-frame">
+                            <div class="tech-photo-titlebar">
+                                <span class="word-window-controls" aria-hidden="true">
+                                    <span class="word-dot word-dot-close"></span>
+                                    <span class="word-dot word-dot-minimize"></span>
+                                    <span class="word-dot word-dot-zoom"></span>
+                                </span>
+                                <span class="tech-photo-label">profile.jpg</span>
+                            </div>
+                            <div class="tech-photo-body">
+                                <img src="profilepics/profile.jpg" alt="Isaac Lau Tsz Hin">
+                            </div>
+                            <div class="tech-photo-caption">// Make the impossible possible.</div>
                         </div>
                     </div>
                 </div>
@@ -89,25 +142,21 @@
     <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
-            <div class="word-document">
-                <div class="word-titlebar">
+            <div class="editor-window md-window">
+                <div class="editor-titlebar">
                     <span class="word-window-controls" aria-hidden="true">
                         <span class="word-dot word-dot-close"></span>
                         <span class="word-dot word-dot-minimize"></span>
                         <span class="word-dot word-dot-zoom"></span>
                     </span>
-                    <span class="word-app">Word</span>
-                    <span class="word-filename">AboutMe.docx</span>
+                    <span class="editor-tab">AboutMe.md</span>
                 </div>
-                <div class="word-toolbar">
-                    <span>File</span>
-                    <span>Home</span>
-                    <span>Insert</span>
-                    <span>Layout</span>
-                    <span>Review</span>
-                    <span>View</span>
+                <div class="md-toolbar">
+                    <span class="md-toolbar-btn is-active">Preview</span>
+                    <span class="md-toolbar-btn">Source</span>
                 </div>
-                <div class="word-page-wrap">
+                <div class="editor-body md-body">
+                    <h3 class="md-heading"># About Me</h3>
                     <p id="about-text">Loading...</p>
                 </div>
             </div>
@@ -276,99 +325,195 @@
     <!-- Projects Section -->
     <section id="projects" class="projects">
         <div class="container">
-            <h2>Featured Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <h3>The Pokédex Project</h3>
-                    <p>Utilizing computer vision and machine learning to identify and classify Pokémon species, thus
-                        recreating the experience of a Pokédex.</p>
-                    <a href="https://github.com/isaaclau128/The-Pokedex-Project" target="_blank"
-                        class="btn btn-secondary">Learn More</a>
-                </div>
-                <div class="project-card">
-                    <h3>HKUST Waitlist Reminder</h3>
-                    <p>Program that sends notifications to students on the waitlist for courses at HKUST.</p>
-                    <a href="https://github.com/isaaclau128/HKUST-Waitlist-Reminder" target="_blank"
-                        class="btn btn-secondary">Learn More</a>
-                </div>
-
-
-                <div class="project-card">
-                    <h3>Nocturne - WORK IN PROGRESS</h3>
-                    <p>An application that uses computer vision (eye-tracking, hand gestures and mouth tracking) to
-                        generate musical compositions in real time.</p>
-                    <a href="https://github.com/isaaclau128/Nocturne" target="_blank" class="btn btn-secondary">Learn
-                        More</a>
-                </div>
-
-
-                <div class="project-card">
-                    <h3>ImPromptu (GDG Hackathon Project on Agentic AI)</h3>
-                    <p>Agentic AI forward study platform to generate practice quizzes and revision schedules for
-                        university students. Uses mongoDB, Firebase, React.js. Done in a team of 3 within 24 hours.</p>
-                    <a href="https://impromptu-final.vercel.app/" target="_blank" class="btn btn-secondary">Learn
-                        More</a>
-                </div>
-
-                <div class="project-card">
-                    <h3>Personal Website</h3>
-                    <p>A personal website to showcase my projects and skills.</p>
-                    <a href="https://isaaclau128.github.io/" target="_blank" class="btn btn-secondary">Learn
-                        More</a>
-                </div>
-                  <div class="project-card">
-                    <h3>My Music</h3>
-                    <p>Click to listen to my music!</p>
-                    <a href="https://isaaclau128.github.io/" target="_blank" class="btn btn-secondary">Learn
-                        More</a>
-                </div>
-
+            <div class="section-heading">
+                <h2>Featured Projects</h2>
             </div>
+            <div class="projects-controls">
+                <label for="project-filter" class="projects-filter-label">Filter by discipline</label>
+                <select id="project-filter" class="projects-filter">
+                    <option value="all">All Projects</option>
+                    <option value="tech">Technology &amp; AI</option>
+                    <option value="music">Music &amp; Creative Arts</option>
+                    <option value="business">Business</option>
+                </select>
+            </div>
+
+            <div class="carousel" id="projects-carousel">
+                <button type="button" class="carousel-arrow carousel-arrow-prev" aria-label="Previous project">&#10094;</button>
+                <div class="carousel-viewport">
+                    <div class="carousel-track">
+                        <article class="project-card" data-category="tech">
+                            <span class="project-tag">Tech</span>
+                            <h3>The Pokédex Project</h3>
+                            <p>Utilizing computer vision and machine learning to identify and classify Pokémon species,
+                                thus recreating the experience of a Pokédex.</p>
+                            <a href="https://github.com/isaaclau128/The-Pokedex-Project" target="_blank"
+                                class="btn btn-secondary">Learn More</a>
+                        </article>
+                        <article class="project-card" data-category="tech">
+                            <span class="project-tag">Tech</span>
+                            <h3>HKUST Waitlist Reminder</h3>
+                            <p>Program that sends notifications to students on the waitlist for courses at HKUST.</p>
+                            <a href="https://github.com/isaaclau128/HKUST-Waitlist-Reminder" target="_blank"
+                                class="btn btn-secondary">Learn More</a>
+                        </article>
+                        <article class="project-card" data-category="tech music">
+                            <span class="project-tag">Tech + Music</span>
+                            <h3>Nocturne - WORK IN PROGRESS</h3>
+                            <p>An application that uses computer vision (eye-tracking, hand gestures and mouth
+                                tracking) to generate musical compositions in real time.</p>
+                            <a href="https://github.com/isaaclau128/Nocturne" target="_blank"
+                                class="btn btn-secondary">Learn More</a>
+                        </article>
+                        <article class="project-card" data-category="tech business">
+                            <span class="project-tag">Tech + Business</span>
+                            <h3>ImPromptu (GDG Hackathon Project on Agentic AI)</h3>
+                            <p>Agentic AI forward study platform to generate practice quizzes and revision schedules
+                                for university students. Uses mongoDB, Firebase, React.js. Done in a team of 3 within
+                                24 hours.</p>
+                            <a href="https://impromptu-final.vercel.app/" target="_blank"
+                                class="btn btn-secondary">Learn More</a>
+                        </article>
+                        <article class="project-card" data-category="tech">
+                            <span class="project-tag">Tech</span>
+                            <h3>Personal Website</h3>
+                            <p>A personal website to showcase my projects and skills.</p>
+                            <a href="https://isaaclau128.github.io/" target="_blank"
+                                class="btn btn-secondary">Learn More</a>
+                        </article>
+                        <article class="project-card" data-category="music">
+                            <span class="project-tag">Music</span>
+                            <h3>My Music</h3>
+                            <p>Click to listen to my music!</p>
+                            <a href="https://isaaclau128.github.io/" target="_blank"
+                                class="btn btn-secondary">Learn More</a>
+                        </article>
+                    </div>
+                </div>
+                <button type="button" class="carousel-arrow carousel-arrow-next" aria-label="Next project">&#10095;</button>
+            </div>
+            <div class="carousel-dots" id="projects-dots"></div>
         </div>
     </section>
+    <script>
+        (function () {
+            const track = document.querySelector('#projects-carousel .carousel-track');
+            const cards = Array.from(track.children);
+            const prevBtn = document.querySelector('.carousel-arrow-prev');
+            const nextBtn = document.querySelector('.carousel-arrow-next');
+            const dotsWrap = document.getElementById('projects-dots');
+            const filterSelect = document.getElementById('project-filter');
+            let visibleCards = cards;
+            let activeIndex = 0;
+
+            function buildDots() {
+                dotsWrap.innerHTML = '';
+                visibleCards.forEach((_, i) => {
+                    const dot = document.createElement('button');
+                    dot.type = 'button';
+                    dot.className = 'carousel-dot';
+                    dot.setAttribute('aria-label', `Go to project ${i + 1}`);
+                    dot.addEventListener('click', () => goTo(i));
+                    dotsWrap.appendChild(dot);
+                });
+            }
+
+            function update() {
+                cards.forEach(card => {
+                    card.style.display = visibleCards.includes(card) ? '' : 'none';
+                });
+                visibleCards.forEach((card, i) => {
+                    card.classList.toggle('is-active', i === activeIndex);
+                });
+                Array.from(dotsWrap.children).forEach((dot, i) => {
+                    dot.classList.toggle('is-active', i === activeIndex);
+                });
+                const offset = visibleCards.length ? activeIndex * 100 : 0;
+                track.style.setProperty('--visible-count', visibleCards.length || 1);
+                track.style.transform = `translateX(-${offset}%)`;
+            }
+
+            function goTo(index) {
+                if (!visibleCards.length) return;
+                activeIndex = (index + visibleCards.length) % visibleCards.length;
+                update();
+            }
+
+            function applyFilter() {
+                const value = filterSelect.value;
+                visibleCards = value === 'all'
+                    ? cards
+                    : cards.filter(card => card.dataset.category.split(' ').includes(value));
+                activeIndex = 0;
+                buildDots();
+                update();
+            }
+
+            prevBtn.addEventListener('click', () => goTo(activeIndex - 1));
+            nextBtn.addEventListener('click', () => goTo(activeIndex + 1));
+            filterSelect.addEventListener('change', applyFilter);
+
+            applyFilter();
+        })();
+    </script>
 
     <!-- Skills Section -->
     <section id="skills" class="skills-section">
         <div class="container">
             <h2>Technical Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Programming Tools</h3>
-                    <div class="skill-tags">
-                        <span class="tag">Python</span>
-                        <span class="tag">C++</span>
-                        <span class="tag">SQL</span>
-                        <span class="tag">Excel VBA</span>
-                        <span class="tag">react.js</span>
-                        <span class="tag">next.js</span>
-                        <span class="tag">git</span>
-                    </div>
+            <div class="editor-window">
+                <div class="editor-titlebar">
+                    <span class="word-window-controls" aria-hidden="true">
+                        <span class="word-dot word-dot-close"></span>
+                        <span class="word-dot word-dot-minimize"></span>
+                        <span class="word-dot word-dot-zoom"></span>
+                    </span>
+                    <span class="editor-tab">skills.ts</span>
                 </div>
-                <div class="skill-category">
-                    <h3>AI-Related Tools</h3>
-                    <div class="skill-tags">
-                        <span class="tag">CNN</span>
-                        <span class="tag">RNN</span>
-                        <span class="tag">NumPy</span>
-                        <span class="tag">Pandas</span>
-                        <span class="tag">MatPlotLib</span>
-                        <span class="tag">Seaborn</span>
-                        <span class="tag">Linear Regression</span>
-                        <span class="tag">Logistic Regression</span>
-                        <span class="tag">Gradient Descent</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3>Software</h3>
-                    <div class="skill-tags">
-                        <span class="tag">MongoDB</span>
-                        <span class="tag">Firebase Auth</span>
-                        <span class="tag">Tailwind CSS</span>
-                        <span class="tag">Autodesk Fusion 360/AutoCAD</span>
-                        <span class="tag">Google SketchUp</span>
-                        <span class="tag">Figma</span>
-                        <span class="tag">MuseScore 4</span>
-                        <span class="tag">GarageBand/iMovie</span>
+                <div class="editor-body">
+                    <div class="skills-grid">
+                        <div class="skill-category">
+                            <h3><span class="code-punct">const</span> programmingTools <span class="code-punct">=</span> [</h3>
+                            <div class="skill-tags">
+                                <span class="tag">Python</span>
+                                <span class="tag">C++</span>
+                                <span class="tag">SQL</span>
+                                <span class="tag">Excel VBA</span>
+                                <span class="tag">react.js</span>
+                                <span class="tag">next.js</span>
+                                <span class="tag">git</span>
+                            </div>
+                            <p class="code-punct code-close">];</p>
+                        </div>
+                        <div class="skill-category">
+                            <h3><span class="code-punct">const</span> aiTools <span class="code-punct">=</span> [</h3>
+                            <div class="skill-tags">
+                                <span class="tag">CNN</span>
+                                <span class="tag">RNN</span>
+                                <span class="tag">NumPy</span>
+                                <span class="tag">Pandas</span>
+                                <span class="tag">MatPlotLib</span>
+                                <span class="tag">Seaborn</span>
+                                <span class="tag">Linear Regression</span>
+                                <span class="tag">Logistic Regression</span>
+                                <span class="tag">Gradient Descent</span>
+                            </div>
+                            <p class="code-punct code-close">];</p>
+                        </div>
+                        <div class="skill-category">
+                            <h3><span class="code-punct">const</span> software <span class="code-punct">=</span> [</h3>
+                            <div class="skill-tags">
+                                <span class="tag">MongoDB</span>
+                                <span class="tag">Firebase Auth</span>
+                                <span class="tag">Tailwind CSS</span>
+                                <span class="tag">Autodesk Fusion 360/AutoCAD</span>
+                                <span class="tag">Google SketchUp</span>
+                                <span class="tag">Figma</span>
+                                <span class="tag">MuseScore 4</span>
+                                <span class="tag">GarageBand/iMovie</span>
+                            </div>
+                            <p class="code-punct code-close">];</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -416,6 +561,24 @@
             toggleBtn.addEventListener('click', () => {
                 const next = document.body.classList.contains('theme-light') ? 'dark' : 'light';
                 applyTheme(next);
+            });
+        })();
+    </script>
+    <script>
+        (function () {
+            const navToggle = document.getElementById('nav-toggle');
+            const navActions = document.getElementById('nav-actions');
+            navToggle.addEventListener('click', () => {
+                const isOpen = navActions.classList.toggle('nav-open');
+                navToggle.classList.toggle('is-active', isOpen);
+                navToggle.setAttribute('aria-expanded', String(isOpen));
+            });
+            navActions.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navActions.classList.remove('nav-open');
+                    navToggle.classList.remove('is-active');
+                    navToggle.setAttribute('aria-expanded', 'false');
+                });
             });
         })();
     </script>
