@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects — Isaac Lau</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Fraunces:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a class="logo" href="index.html"><span class="logo-bracket">&lt;</span>Isaac Lau Tsz Hin<span class="logo-bracket">/&gt;</span><span class="logo-cursor">_</span></a>
+            <div class="nav-actions">
+                <ul class="nav-links">
+                    <li><a href="index.html#home">Profile</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#projects">Featured</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container projects-page">
+        <header class="section-heading">
+            <h1>All Featured Projects</h1>
+            <p class="subtitle">Browse and filter projects by discipline.</p>
+        </header>
+
+        <div class="projects-controls">
+            <label for="projects-filter-page" class="projects-filter-label">Filter by discipline</label>
+            <select id="projects-filter-page" class="projects-filter">
+                <option value="all">All Projects</option>
+                <option value="tech">Technology &amp; AI</option>
+                <option value="music">Music &amp; Creative Arts</option>
+                <option value="business">Business</option>
+            </select>
+        </div>
+
+        <section class="projects-grid" id="projects-grid">
+            <article class="project-card" data-category="tech">
+                <span class="project-tag">Tech</span>
+                <h3>The Pokédex Project</h3>
+                <p>Utilizing computer vision and machine learning to identify and classify Pokémon species, thus recreating the experience of a Pokédex.</p>
+                <a href="https://github.com/isaaclau128/The-Pokedex-Project" target="_blank" class="btn btn-secondary">Learn More</a>
+            </article>
+
+            <article class="project-card" data-category="tech">
+                <span class="project-tag">Tech</span>
+                <h3>HKUST Waitlist Reminder</h3>
+                <p>Program that sends notifications to students on the waitlist for courses at HKUST.</p>
+                <a href="https://github.com/isaaclau128/HKUST-Waitlist-Reminder" target="_blank" class="btn btn-secondary">Learn More</a>
+            </article>
+
+            <article class="project-card" data-category="tech music">
+                <span class="project-tag">Tech + Music</span>
+                <h3>Nocturne - WORK IN PROGRESS</h3>
+                <p>An application that uses computer vision (eye-tracking, hand gestures and mouth tracking) to generate musical compositions in real time.</p>
+                <a href="https://github.com/isaaclau128/Nocturne" target="_blank" class="btn btn-secondary">Learn More</a>
+            </article>
+
+            <article class="project-card" data-category="tech business">
+                <span class="project-tag">Tech + Business</span>
+                <h3>ImPromptu (GDG Hackathon Project on Agentic AI)</h3>
+                <p>Agentic AI forward study platform to generate practice quizzes and revision schedules for university students.</p>
+                <a href="https://impromptu-final.vercel.app/" target="_blank" class="btn btn-secondary">Learn More</a>
+            </article>
+
+            <article class="project-card" data-category="tech">
+                <span class="project-tag">Tech</span>
+                <h3>Personal Website</h3>
+                <p>A personal website to showcase my projects and skills.</p>
+                <a href="https://isaaclau128.github.io/" target="_blank" class="btn btn-secondary">Learn More</a>
+            </article>
+
+            <article class="project-card" data-category="music">
+                <span class="project-tag">Music</span>
+                <h3>My Music</h3>
+                <p>Click to listen to my music!</p>
+                <a href="https://isaaclau128.github.io/" target="_blank" class="btn btn-secondary">Learn More</a>
+            </article>
+        </section>
+
+        <div class="projects-back">
+            <a href="index.html" class="btn btn-secondary">Back to home</a>
+        </div>
+    </main>
+
+    <script>
+        (function () {
+            const filter = document.getElementById('projects-filter-page');
+            const grid = document.getElementById('projects-grid');
+            const cards = Array.from(grid.querySelectorAll('.project-card'));
+
+            function applyFilter() {
+                const value = filter.value;
+                cards.forEach(card => {
+                    const cats = card.dataset.category.split(' ');
+                    const show = value === 'all' || cats.includes(value);
+                    card.style.display = show ? '' : 'none';
+                });
+            }
+
+            filter.addEventListener('change', applyFilter);
+            applyFilter();
+        })();
+    </script>
+
+    <div id="footer-container"></div>
+    <script>
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('footer-container').innerHTML = html;
+            })
+            .catch(() => console.error('Failed to load footer'));
+    </script>
+</body>
+
+</html>
