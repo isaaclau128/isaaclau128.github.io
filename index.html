@@ -426,14 +426,27 @@
                     card.style.display = visibleCards.includes(card) ? '' : 'none';
                 });
                 visibleCards.forEach((card, i) => {
+                    const previousIndex = (activeIndex - 1 + visibleCards.length) % visibleCards.length;
+                    const nextIndex = (activeIndex + 1) % visibleCards.length;
                     card.classList.toggle('is-active', i === activeIndex);
+                    card.classList.toggle('is-prev', visibleCards.length > 1 && i === previousIndex);
+                    card.classList.toggle('is-next', visibleCards.length > 1 && i === nextIndex);
                 });
                 Array.from(dotsWrap.children).forEach((dot, i) => {
                     dot.classList.toggle('is-active', i === activeIndex);
                 });
-                const offset = visibleCards.length ? activeIndex * 100 : 0;
-                track.style.setProperty('--visible-count', visibleCards.length || 1);
-                track.style.transform = `translateX(-${offset}%)`;
+                const viewport = track.parentElement;
+                if (!visibleCards.length) {
+                    track.style.transform = 'translateX(0)';
+                    return;
+                }
+                if (window.innerWidth <= 768) {
+                    track.style.transform = `translateX(-${activeIndex * 100}%)`;
+                    return;
+                }
+                const activeCard = visibleCards[activeIndex];
+                const targetLeft = activeCard.offsetLeft - (viewport.clientWidth - activeCard.offsetWidth) / 2;
+                track.style.transform = `translateX(-${targetLeft}px)`;
             }
 
             function goTo(index) {
@@ -455,6 +468,7 @@
             prevBtn.addEventListener('click', () => goTo(activeIndex - 1));
             nextBtn.addEventListener('click', () => goTo(activeIndex + 1));
             filterSelect.addEventListener('change', applyFilter);
+            window.addEventListener('resize', update);
 
             applyFilter();
         })();

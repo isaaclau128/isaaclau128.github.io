@@ -1128,23 +1128,25 @@ body:not(.theme-light) .theme-toggle:hover {
     display: flex;
     align-items: center;
     gap: 1rem;
-    max-width: 760px;
+    max-width: 1080px;
     margin: 0 auto;
 }
 
 .carousel-viewport {
     flex: 1 1 auto;
     overflow: hidden;
-    border-radius: 10px;
+    padding: 1rem 0;
 }
 
 .carousel-track {
     display: flex;
+    align-items: stretch;
+    gap: 1.25rem;
     transition: transform 0.4s ease;
 }
 
 .project-card {
-    flex: 0 0 100%;
+    flex: 0 0 calc((100% - 2.5rem) / 3);
     background-color: var(--card-color);
     border-radius: 8px;
     padding: 2rem;
@@ -1152,6 +1154,21 @@ body:not(.theme-light) .theme-toggle:hover {
     display: flex;
     flex-direction: column;
     min-height: 260px;
+    opacity: 0.45;
+    transform: scale(0.88);
+    transition: transform 0.4s ease, opacity 0.4s ease, box-shadow 0.4s ease;
+}
+
+.project-card.is-prev,
+.project-card.is-next {
+    opacity: 0.72;
+    transform: scale(0.92);
+}
+
+.project-card.is-active {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 18px 44px rgba(0, 0, 0, 0.28);
 }
 
 .project-tag {
@@ -1226,6 +1243,13 @@ body:not(.theme-light) .theme-toggle:hover {
     background-color: var(--primary-color);
     opacity: 1;
     transform: scale(1.2);
+}
+
+.projects-more,
+.projects-back {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
 }
 
 .course-history {
@@ -1951,7 +1975,25 @@ footer a:hover {
     }
 
     .project-card {
+        flex-basis: 100%;
         padding: 1.5rem;
+        opacity: 1;
+        transform: none;
+    }
+
+    .project-card.is-prev,
+    .project-card.is-next,
+    .project-card.is-active {
+        opacity: 1;
+        transform: none;
+    }
+
+    .carousel-track {
+        gap: 0;
+    }
+
+    .carousel-viewport {
+        padding: 0;
     }
 
     .project-card h3 {
